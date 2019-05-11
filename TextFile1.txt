@@ -1,0 +1,42 @@
+ReadingAssignment;name^Grapes of Wrath|due_date^2019-05-15 11:00AM|professor^Bob Jones|pages^25|scheduled_start^2019-05-16 12:00PM
+
+
+def assignment_properties(input_line):
+	line=line.split(';')
+	assignment_type=line[0]
+	assignment_dict={}
+	for part in line[1].split('|'):
+		key,value=part.split('^')
+		assignment_dict[key]=value
+	return(assignment_type,assignment_dict)
+
+
+assignments_list=[]
+for line in file:
+	assignment_type,assignment_dict=assignment_properties(line)
+	if assignment_type='Readingassignment':
+		Newassignment=Readingassignment(assignment_dict['name'],
+		assignment_dict['due_date'],assignment_dict['professor'],assignment_dict['pages'])
+		assignments_list.append(Newassignment)
+
+#This Makes John In Memory 
+Student1=student.Student('John',22,15,1,24)
+
+#This tells us properties of John
+ dir(Student1)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__',
+'__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', 
+'__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', 
+'__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', 
+'__str__', '__subclasshook__', '__weakref__', 'name', 
+'questions_per_min', 'read_speed', 'research_rate', 'write_speed']
+
+#How to tell what Type of an Object is (Use Adapation of this to find the Type of Assignment to Write to file)
+type(Student1) == student.Student
+True
+
+if type(Newassignment) == assignments.ReadingAssignment:
+	line='ReadingAssignment;'
+	for key,value in Newassignment.__dict__.items():
+		line+=f'{key}^{value}|'
+	line=line[:-1]
