@@ -10,8 +10,15 @@ class BaseAssignment(object):
         self.name = name
         self.due_date = parse(due_date)
         self.professor = professor
-        self.scheduled_start=parse(scheduled_start)
-class SelfLearning(BaseAssignment):
+        if scheduled_start == ''
+            self.scheduled_start=scheduled_start
+        else:
+            self.scheduled_start = parse(scheduled_start)
+
+    def set_scheduled_start(self,scheduled_start):
+        self.scheduled_start=scheduled_start
+
+class SelfLearningAssignment(BaseAssignment):
     """
     Inherits BaseAssignment, Adds required Fields for Test Review
     """
