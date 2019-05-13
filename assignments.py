@@ -1,7 +1,8 @@
 """
 Defines Assignment Class and properties
 """
-from dateutil.parser import parse
+#from dateutil.parser import parse
+from datetime import datetime, timedelta
 class BaseAssignment(object):
     """
     Base Assignment all Assignments require these fields (scheduled start optional)
@@ -11,9 +12,9 @@ class BaseAssignment(object):
         self.due_date = parse(due_date)
         self.professor = professor
         if scheduled_start == '':
-            self.scheduled_start=scheduled_start
+            self.scheduled_start=datetime.now() + timedelta(minutes=9600)
         else:
-            self.scheduled_start = parse(scheduled_start)
+            self.scheduled_start = datetime.now()
 
     def set_scheduled_start(self,scheduled_start):
         self.scheduled_start=scheduled_start
