@@ -43,7 +43,7 @@ def MultipleStartTimes(list_of_assignments, Student_object):
     :return:
     """
     date_total_dictionary={}
-    sorted_list=sorted(list_of_assignments,key=getattr('due_date'))
+    sorted_list=sorted(list_of_assignments,key=attrgetter('due_date'))
     for assignment in sorted_list:
         if type(assignment) == assignments.SelfLearningAssignment:
             # Get number of questions and rate to figure out duration
