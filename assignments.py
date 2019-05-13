@@ -10,7 +10,7 @@ class BaseAssignment(object):
         self.name = name
         self.due_date = parse(due_date)
         self.professor = professor
-        if scheduled_start == ''
+        if scheduled_start == '':
             self.scheduled_start=scheduled_start
         else:
             self.scheduled_start = parse(scheduled_start)
